@@ -26,15 +26,19 @@ namespace prjInventoryManagement
     public static class ProductExtensions
     {
         // Calculate total inventory value (Price * Quantity)
+        //(StackOverFlow, 2018)
         public static double TotalValue(this List<Product> products)
         {
             return products.Sum(p => p.Price * p.Quantity);
         }
 
         // Filter products low in stock 
+        //(Microsoft Corporation, 2025)
         public static List<Product> LowStock(this List<Product> products, int threshold = 5)
         {
             return products.Where(p => p.Quantity <= threshold).ToList();
         }
     }
 }
+//Microsoft Corporation. (n.d.) LINQ (Language-Integrated Query) - Filtering with Where. Available at: https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/filtering-data [Accessed: 8 August 2025].
+//Stack Overflow community. (2018) Summing numbers using pointer arithmetic. Available at: https://stackoverflow.com/questions/50155739/summing-numbers-using-pointer-arithmetic [Accessed: 8 August 2025].
